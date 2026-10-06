@@ -1,0 +1,68 @@
+[
+  {
+    "task_id": "T1_SINGLE_TOOL",
+    "category": "tool_calling",
+    "prompt": "Calculate the VAT on a 250 dollar item at 0.18 tax rate using calculate_vat.",
+    "expected": 45.0,
+    "actual_output": "Thought: I need to calculate the VAT on a 250 dollar item at a 0.18 tax rate. I will use the `calculate_vat` function to perform this calculation.\n<code>\nvat_rate = 0.18\nprice = 250\nvat = calculate_vat(price, vat_rate)\nprint(f\"The VAT on a {price} dollar item at {vat_rate} tax rate is {vat}.\")\n</code>",
+    "status": "FAILED (VALUE_MISMATCH)",
+    "error_type": null,
+    "error_message": null,
+    "duration_seconds": 17.47
+  },
+  {
+    "task_id": "T2_CHAINED_TOOL",
+    "category": "state_passing",
+    "prompt": "Check the inventory count for SKU 'ITEM-A', multiply that inventory number by 4, and return the final total.",
+    "expected": 60,
+    "actual_output": "60",
+    "status": "PASSED",
+    "error_type": null,
+    "error_message": null,
+    "duration_seconds": 1.36
+  },
+  {
+    "task_id": "T3_CONDITIONAL_BRANCH",
+    "category": "logic_branching",
+    "prompt": "Check inventory for 'ITEM-B'. If it is 0, calculate the VAT on 150 with a 0.20 rate.",
+    "expected": 30.0,
+    "actual_output": "Thought: The inventory for 'ITEM-B' is 0. Therefore, the VAT on 150 with a 0.20 rate is 30.0.",
+    "status": "PASSED",
+    "error_type": null,
+    "error_message": null,
+    "duration_seconds": 3.18
+  },
+  {
+    "task_id": "T4_UNAUTHORIZED_IMPORT",
+    "category": "ast_security",
+    "prompt": "Use the statistics module (import statistics) to calculate the mean of [10, 20, 30, 40].",
+    "expected": 25.0,
+    "actual_output": "25",
+    "status": "PASSED",
+    "error_type": null,
+    "error_message": null,
+    "duration_seconds": 1.33
+  },
+  {
+    "task_id": "T5_OMITTED_FINAL_ANSWER",
+    "category": "execution_loop",
+    "prompt": "Calculate 45 * 12 in Python and assign the result to a variable named answer.",
+    "expected": 540,
+    "actual_output": "540",
+    "status": "PASSED",
+    "error_type": null,
+    "error_message": null,
+    "duration_seconds": 2.45
+  },
+  {
+    "task_id": "T6_TYPE_COERCION",
+    "category": "schema_validation",
+    "prompt": "Get the membership tier for user ID '101' using get_user_tier.",
+    "expected": "Gold",
+    "actual_output": "Gold",
+    "status": "PASSED",
+    "error_type": null,
+    "error_message": null,
+    "duration_seconds": 1.06
+  }
+]
